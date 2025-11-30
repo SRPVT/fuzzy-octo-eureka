@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<!--
+ -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support - Editing Helper</title>
+
+  <!-- Meta tags for SEO and social sharing -->
+  <meta name="description" content="Editing Helper Support - Get help from support via Discord or email.">
+  <meta property="og:title" content="Editing Helper - Support">
+  <meta property="og:description" content="Contact Editing Helper support for assistance and questions.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://helperbot.vercel.app/support.html">
+  <meta property="og:image" content="./assets__images/helper-logo.png">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets__images/helper-logo.png" type="image/x-icon">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="./assets__css/style.css">
+  <link rel="stylesheet" href="./assets__css/preloader.css">
+  <link rel="stylesheet" href="./assets__css/theme.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    .legal-content {
+      padding: var(--spacing-xxl) 0;
+      min-height: 70vh;
+    }
+
+    .legal-container {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-xl);
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      margin-top: var(--spacing-xl);
+    }
+
+    .legal-container h2 {
+      color: var(--primary);
+      margin-bottom: var(--spacing-lg);
+      font-size: 1.8rem;
+      border-bottom: 1px solid rgba(255, 204, 0, 0.2);
+      padding-bottom: var(--spacing-sm);
+    }
+
+    .legal-container h3 {
+      color: var(--text-white);
+      margin: var(--spacing-lg) 0 var(--spacing-md);
+      font-size: 1.4rem;
+    }
+
+    .legal-container p {
+      margin-bottom: var(--spacing-md);
+      color: var(--text-gray);
+      line-height: 1.7;
+    }
+
+    .support-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: var(--spacing-lg);
+      margin-top: var(--spacing-xl);
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .support-card {
+      background: rgba(255, 204, 0, 0.05);
+      border: 1px solid rgba(255, 204, 0, 0.2);
+      border-radius: var(--radius-md);
+      padding: var(--spacing-lg);
+      transition: all var(--transition-normal);
+    }
+
+    .support-card:hover {
+      background: rgba(255, 204, 0, 0.1);
+      border-color: rgba(255, 204, 0, 0.4);
+      transform: translateY(-5px);
+    }
+
+    .support-card-icon {
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .support-card h4 {
+      color: var(--text-white);
+      margin-bottom: var(--spacing-sm);
+      font-size: 1.2rem;
+    }
+
+    .support-card p {
+      margin-bottom: var(--spacing-md);
+    }
+
+    .email-link {
+      color: var(--primary-light);
+      text-decoration: none;
+      word-break: break-all;
+      transition: color var(--transition-normal);
+    }
+
+    .email-link:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .legal-container ul, .legal-container ol {
+      padding-left: var(--spacing-lg);
+    }
+
+    .legal-container li {
+      margin-bottom: var(--spacing-sm);
+      color: var(--text-gray);
+    }
+
+    .legal-container a {
+      color: var(--primary-light);
+      text-decoration: underline;
+      transition: color var(--transition-normal);
+    }
+
+    .legal-container a:hover {
+      color: var(--primary);
+    }
+
+    .legal-date {
+      font-style: italic;
+      color: var(--text-dark);
+      margin-top: var(--spacing-xl);
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="loader">
+      <div class="loader-circle"></div>
+      <div class="loader-circle"></div>
+      <img src="./assets__images/helper-logo.png" alt="Editing Helper Logo" class="loader-logo">
+    </div>
+  </div>
+
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="./assets__images/helper-logo.png" alt="Editing Helper Logo">
+          <h1>Editing Helper</h1>
+        </a>
+
+        <!-- Mobile menu toggle button -->
+        <div class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="nav-container">
+          <nav class="nav">
+            <ul class="nav-list">
+              <li><a href="index.html#features" class="nav-link">Features</a></li>
+              <li><a href="index.html#commands" class="nav-link">Commands</a></li>
+              <li><a href="index.html#premium" class="nav-link">Premium</a></li>
+              <li><a href="support.html" class="nav-link">Support</a></li>
+            </ul>
+          </nav>
+          <div class="header-buttons">
+            <a href="support.html" class="btn btn-secondary">
+              <i class="fas fa-headset"></i> <span>Support</span>
+            </a>
+            <a href="https://discord.com/oauth2/authorize?client_id=1346128525282775144&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fdiscord.gg%2FTW7wySsrue&integration_type=0&scope=bot%20applications.commands" class="btn btn-primary" target="_blank">
+              <i class="fas fa-plus"></i> <span>Add to Discord</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="legal-content">
+      <div class="container">
+        <div class="legal-container">
+          <h2>Support</h2>
+          
+          <p>
+            Need help? Check out the common questions below or visit the privacy policy for more information.
+            please don't hesitate to reach out. Our support team is ready to assist you.
+          </p>
+
+          <h3>Get in Touch</h3>
+          <p>
+            You can contact us through the following channels:
+          </p>
+
+          <div class="support-grid">
+            <div class="support-card">
+              <div class="support-card-icon">
+                <i class="fab fa-discord"></i>
+              </div>
+              <h4>Discord Server</h4>
+              <p>Join our official Discord community for instant support and to connect with other users.</p>
+              <a href="https://discord.gg/TW7wySsrue" target="_blank" class="email-link">
+                discord.gg/TW7wySsrue <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+
+            <div class="support-card">
+              <div class="support-card-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <h4>Email Support</h4>
+              <p>Send us an email for detailed inquiries and technical support.</p>
+              <a href="mailto:support@helperbot.com" class="email-link">
+                support@helperbot.com
+              </a>
+            </div>
+
+            <div class="support-card">
+              <div class="support-card-icon">
+                <i class="fas fa-question-circle"></i>
+              </div>
+              <h4>General Inquiries</h4>
+              <p>For general questions about Editing Helper and its features.</p>
+              <a href="mailto:info@helperbot.com" class="email-link">
+                info@helperbot.com
+              </a>
+            </div>
+          </div>
+
+          <h3>Support Hours</h3>
+          <p>
+            Our support team is available to assist you during the following times:
+          </p>
+          <ul>
+            <li><strong>Discord Server:</strong> 24/7 community support (responses may vary)</li>
+            <li><strong>Email Support:</strong> Monday - Friday, 9:00 AM - 6:00 PM (UTC)</li>
+            <li><strong>Response Time:</strong> We aim to respond to all inquiries within 24-48 hours</li>
+          </ul>
+
+          <h3>Frequently Asked Questions</h3>
+          <p>
+            Before reaching out, you might find answers to common questions:
+          </p>
+          <ul>
+            <li><strong>How do I add Editing Helper to my Discord server?</strong> - Click the "Add to Discord" button on this website and select your server. Editing Helper requires basic permissions to function properly.</li>
+            <li><strong>What are the system requirements?</strong> - Editing Helper works on all Discord servers. Ensure your server has basic permissions configured correctly.</li>
+            <li><strong>Is Editing Helper free?</strong> - Yes! Editing Helper is completely free with all essential features. Premium features are coming soon.</li>
+            <li><strong>How do I use a command?</strong> - Type "/" in Discord to see available commands. Our bot supports Discord's slash command system.</li>
+            <li><strong>Can I customize commands for my server?</strong> - Yes! Use the settings command to customize Editing Helper's behavior for your specific needs.</li>
+            <li><strong>What data does Editing Helper collect?</strong> - We only collect minimal data necessary to provide the service. Please review our Privacy Policy for details.</li>
+          </ul>
+
+          <h3>Report a Bug</h3>
+          <p>
+            If you've discovered a bug or technical issue, please report it to us:
+          </p>
+          <ul>
+            
+            <li>Email us at <a href="mailto:bugs@helperbot.com" class="email-link">bugs@helperbot.com</a> with detailed information about the issue</li>
+          </ul>
+
+          <h3>Feedback & Suggestions</h3>
+          <p>
+            We love hearing from our users! If you have suggestions for new features or improvements:
+          </p>
+          <ul>
+            <li>Visit our <a href="https://discord.gg/TW7wySsrue" target="_blank">Discord community</a> to share your ideas</li>
+            <li>Send suggestions to <a href="mailto:feedback@helperbot.com" class="email-link">feedback@helperbot.com</a></li>
+          </ul>
+
+          <p style="margin-top: var(--spacing-xl);">
+            Thank you for using Editing Helper! This tool is designed to providing you with the best experience possible.
+          </p>
+
+          <div class="legal-date">Last Updated: November 2025</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <a href="index.html" class="footer-logo">
+          <img src="./assets__images/helper-logo.png" alt="HELPER Logo">
+          <h2>HELPER</h2>
+        </a>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h3><i class="fas fa-link"></i> Links</h3>
+            <ul>
+              <li><a href="index.html#features"><i class="fas fa-chevron-right"></i> Features</a></li>
+              <li><a href="index.html#commands"><i class="fas fa-chevron-right"></i> Commands</a></li>
+              <li><a href="index.html#premium"><i class="fas fa-chevron-right"></i> Premium</a></li>
+              <li><a href="support.html"><i class="fas fa-chevron-right"></i> Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3><i class="fas fa-gavel"></i> Legal</h3>
+            <ul>
+              <li><a href="terms.html"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+              <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3><i class="fas fa-globe"></i> Connect</h3>
+            <ul>
+              <li><a href="support.html"><i class="fas fa-headset"></i> Support</a></li>
+              <li><a href="https://top.gg/bot/1346128525282775144/vote" target="_blank"><i class="fas fa-vote-yea"></i> Vote on Top.gg</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Editing Helper. Created by <a href="https://dscbmr.is-a.dev" target="_blank">bmr</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Files -->
+  <script src="./assets__js/preloader.js"></script>
+  <script src="./assets__js/script.js"></script>
+</body>
+</html>

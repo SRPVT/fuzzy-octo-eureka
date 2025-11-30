@@ -1,0 +1,28 @@
+/* Override conflicting animations */
+@keyframes none {
+  0%, 100% { opacity: 1; }
+}
+
+/* Disable conflicting stat animations */
+.stat-card:hover .stat-number {
+  animation: none !important;
+}
+
+.stat-card:hover .stat-icon {
+  animation: iconHoverSpin 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+/* Simplify logo animations */
+.logo {
+  animation: logoGentleFloat 4s ease-in-out infinite !important;
+}
+
+.logo:hover img {
+  animation: logoHoverSpin 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+/* Remove bounce from stat cards */
+.stat-card .progress-bar::after {
+  animation: none !important;
+}
+

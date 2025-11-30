@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upcoming Updates - Editing Helper</title>
+
+  <!-- Meta tags for SEO and social sharing -->
+  <meta name="description" content="Upcoming Updates for Editing Helper - Discover upcoming features coming to HELPER.">
+  <meta property="og:title" content="Editing Helper - Upcoming Updates">
+  <meta property="og:description" content="Upcoming Updates for HELPER Discord bot.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="./assets__images/helper-logo.png">
+
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="./assets__images/helper-logo.png" type="image/x-icon">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="./assets__css/style.css">
+  <link rel="stylesheet" href="./assets__css/preloader.css">
+  <link rel="stylesheet" href="./assets__css/theme.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body {
+      background: var(--bg-dark);
+    }
+
+    .updates-hero {
+      min-height: 70vh;
+      background: linear-gradient(135deg, #1a1a2e 0%, rgba(255, 204, 0, 0.08) 50%, #1a1a2e 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem;
+    }
+
+    .updates-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 204, 0, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .updates-hero::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(255, 204, 0, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .updates-hero-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+    }
+
+    .updates-hero h1 {
+      font-size: 4rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      animation: slideDown 0.8s ease;
+    }
+
+    .updates-hero p {
+      font-size: 1.25rem;
+      color: var(--text-gray);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.8;
+      animation: slideUp 0.8s ease 0.2s both;
+    }
+
+    @keyframes slideDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes slideUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .updates-container {
+      padding: 6rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .update-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .update-card {
+      background: linear-gradient(135deg, rgba(255, 204, 0, 0.12) 0%, rgba(255, 204, 0, 0.03) 100%);
+      border: 2px solid rgba(255, 204, 0, 0.25);
+      border-radius: 16px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .update-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 204, 0, 0.15), transparent);
+      transition: left 0.6s ease;
+      z-index: 1;
+    }
+
+    .update-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-15px);
+      box-shadow: 0 20px 50px rgba(255, 204, 0, 0.25);
+    }
+
+    .update-card:hover::before {
+      left: 100%;
+    }
+
+    .update-card > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .quarter-badge {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--bg-dark);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      width: fit-content;
+      box-shadow: 0 4px 15px rgba(255, 204, 0, 0.3);
+    }
+
+    .update-card h3 {
+      font-size: 1.5rem;
+      color: var(--text-white);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .update-card p {
+      color: var(--text-gray);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .features-list {
+      list-style: none;
+      margin: 1.5rem 0;
+    }
+
+    .features-list li {
+      color: var(--text-gray);
+      padding: 0.6rem 0 0.6rem 1.8rem;
+      position: relative;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .features-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .features-list li:hover {
+      color: var(--primary);
+      padding-left: 2.2rem;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      width: fit-content;
+    }
+
+    .status-in-progress {
+      background: rgba(251, 191, 36, 0.15);
+      border: 1px solid rgba(251, 191, 36, 0.4);
+      color: #fbbf24;
+    }
+
+    .status-planned {
+      background: rgba(96, 165, 250, 0.15);
+      border: 1px solid rgba(96, 165, 250, 0.4);
+      color: #60a5fa;
+    }
+
+    .status-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
+
+    .status-in-progress .status-dot {
+      background: #fbbf24;
+    }
+
+    .status-planned .status-dot {
+      background: #60a5fa;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .updates-stats {
+      background: linear-gradient(135deg, rgba(255, 204, 0, 0.1) 0%, rgba(255, 204, 0, 0.02) 100%);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      margin-top: 5rem;
+      text-align: center;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat-item {
+      padding: 1.5rem;
+      background: rgba(255, 204, 0, 0.05);
+      border-radius: 12px;
+      border: 1px solid rgba(255, 204, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .stat-item:hover {
+      border-color: var(--primary);
+      transform: scale(1.05);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    .stat-text {
+      color: var(--text-gray);
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .updates-hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .update-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Preloader -->
+  <div class="preloader">
+    <div class="loader">
+      <div class="loader-circle"></div>
+      <div class="loader-circle"></div>
+      <img src="./assets__images/helper-logo.png" alt="HELPER Logo" class="loader-logo">
+    </div>
+  </div>
+
+  <!-- Header Section -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">
+          <img src="./assets__images/helper-logo.png" alt="HELPER Logo">
+          <h1>HELPER</h1>
+        </a>
+
+        <!-- Mobile menu toggle button -->
+        <div class="mobile-menu-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+
+        <div class="nav-container">
+          <nav class="nav">
+            <ul class="nav-list">
+              <li><a href="index.html#features" class="nav-link">Features</a></li>
+              <li><a href="index.html#commands" class="nav-link">Commands</a></li>
+              <li><a href="upcoming-updates.html" class="nav-link active">Updates</a></li>
+              <li><a href="index.html#support" class="nav-link">Support</a></li>
+            </ul>
+          </nav>
+          <div class="header-buttons">
+            <a href="https://discord.gg/TW7wySsrue" class="btn btn-secondary" target="_blank">
+              <i class="fab fa-discord"></i> <span>Support Server</span>
+            </a>
+            <a href="https://discord.com/oauth2/authorize?client_id=1346128525282775144&permissions=8&response_type=code&redirect_uri=https%3A%2F%2Fdiscord.gg%2FTW7wySsrue&integration_type=0&scope=bot%20applications.commands" class="btn btn-primary" target="_blank">
+              <i class="fas fa-plus"></i> <span>Add to Discord</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="updates-hero">
+    <div class="updates-hero-inner">
+      <h1>✨ Upcoming Updates</h1>
+      <p>Discover the incredible features coming to HELPER. Here's what we're building next to make ya Discord experience amazing.</p>
+    </div>
+  </section>
+
+  <!-- Updates Grid -->
+  <section class="updates-container">
+    <div class="update-grid">
+      <!-- Q4 2024 -->
+      <div class="update-card">
+        <div class="quarter-badge">Q4 2024</div>
+        <h3><i class="fas fa-image"></i> Image Analysis</h3>
+        <p>Advanced AI vision capabilities to understand and describe images with incredible accuracy.</p>
+        <ul class="features-list">
+          <li>Real-time image recognition</li>
+          <li>Detailed visual descriptions</li>
+          <li>Content moderation</li>
+          <li>Creative suggestions</li>
+        </ul>
+        <div class="status-badge status-in-progress">
+          <span class="status-dot"></span>
+          <span>In Progress</span>
+        </div>
+      </div>
+
+      <!-- Q1 2025 - Voice -->
+      <div class="update-card">
+        <div class="quarter-badge">Q1 2025</div>
+        <h3><i class="fas fa-microphone"></i> Voice Commands</h3>
+        <p>Control HELPER entirely through voice in Discord voice channels with natural conversation.</p>
+        <ul class="features-list">
+          <li>Natural language processing</li>
+          <li>Real-time transcription</li>
+          <li>Hands-free operation</li>
+          <li>Multi-language support</li>
+        </ul>
+        <div class="status-badge status-planned">
+          <span class="status-dot"></span>
+          <span>Planned</span>
+        </div>
+      </div>
+
+      <!-- Q1 2025 - Workflows -->
+      <div class="update-card">
+        <div class="quarter-badge">Q1 2025</div>
+        <h3><i class="fas fa-cog"></i> Custom Workflows</h3>
+        <p>Build powerful automation sequences without coding. Create intelligent workflows for your server.</p>
+        <ul class="features-list">
+          <li>Workflow builder</li>
+          <li>Conditional logic</li>
+          <li>Scheduled automations</li>
+          <li>Event triggers</li>
+        </ul>
+        <div class="status-badge status-planned">
+          <span class="status-dot"></span>
+          <span>Planned</span>
+        </div>
+      </div>
+
+      <!-- Q2 2025 -->
+      <div class="update-card">
+        <div class="quarter-badge">Q2 2025</div>
+        <h3><i class="fas fa-chart-line"></i> Advanced Analytics</h3>
+        <p>Deep insights into your server activity and HELPER usage with beautiful dashboards and reports.</p>
+        <ul class="features-list">
+          <li>Activity tracking</li>
+          <li>Usage reports</li>
+          <li>Custom dashboards</li>
+          <li>Export options</li>
+        </ul>
+        <div class="status-badge status-planned">
+          <span class="status-dot"></span>
+          <span>Planned</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="updates-stats">
+      <h2 class="section-title" style="margin: 0;">Development Progress</h2>
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-number">4+</div>
+          <div class="stat-text">Major Features</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">2025</div>
+          <div class="stat-text">Year of Innovation</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">100%</div>
+          <div class="stat-text">Community Driven</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <a href="index.html" class="footer-logo">
+          <img src="./assets__images/helper-logo.png" alt="HELPER Logo">
+          <h2>HELPER</h2>
+        </a>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h3><i class="fas fa-link"></i> Links</h3>
+            <ul>
+              <li><a href="index.html#features"><i class="fas fa-chevron-right"></i> Features</a></li>
+              <li><a href="index.html#commands"><i class="fas fa-chevron-right"></i> Commands</a></li>
+              <li><a href="upcoming-updates.html"><i class="fas fa-chevron-right"></i> Updates</a></li>
+              <li><a href="index.html#support"><i class="fas fa-chevron-right"></i> Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3><i class="fas fa-gavel"></i> Legal</h3>
+            <ul>
+              <li><a href="terms.html"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+              <li><a href="privacy.html"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h3><i class="fas fa-globe"></i> Connect</h3>
+            <ul>
+              <li><a href="https://discord.gg/TW7wySsrue" target="_blank"><i class="fab fa-discord"></i> Discord</a></li>
+              <li><a href="https://top.gg/bot/1346128525282775144/vote" target="_blank"><i class="fas fa-vote-yea"></i> Vote on Top.gg</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Editing Helper. Created by <a href="https://dscbmr.is-a.dev" target="_blank">bmr</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript Files -->
+  <script src="./assets__js/preloader.js"></script>
+  <script src="./assets__js/script.js"></script>
+</body>
+</html>

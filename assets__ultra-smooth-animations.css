@@ -1,0 +1,478 @@
+/* ===== ULTRA SMOOTH LOGO FLOAT (CONTINUOUS) ===== */
+
+@keyframes continuousLogoFloat {
+  0% {
+    transform: translateY(0px);
+    filter: drop-shadow(0 4px 12px rgba(255, 204, 0, 0.3));
+  }
+  50% {
+    transform: translateY(-15px);
+    filter: drop-shadow(0 8px 20px rgba(255, 204, 0, 0.45));
+  }
+  100% {
+    transform: translateY(0px);
+    filter: drop-shadow(0 4px 12px rgba(255, 204, 0, 0.3));
+  }
+}
+
+@keyframes continuousHeroFloat {
+  0% {
+    transform: translateY(0px);
+    filter: drop-shadow(0 8px 20px rgba(255, 204, 0, 0.4));
+  }
+  50% {
+    transform: translateY(-20px);
+    filter: drop-shadow(0 12px 30px rgba(255, 204, 0, 0.55));
+  }
+  100% {
+    transform: translateY(0px);
+    filter: drop-shadow(0 8px 20px rgba(255, 204, 0, 0.4));
+  }
+}
+
+@keyframes continuousFooterFloat {
+  0% {
+    transform: translateY(0px);
+    filter: drop-shadow(0 2px 8px rgba(255, 204, 0, 0.3));
+  }
+  50% {
+    transform: translateY(-10px);
+    filter: drop-shadow(0 6px 14px rgba(255, 204, 0, 0.4));
+  }
+  100% {
+    transform: translateY(0px);
+    filter: drop-shadow(0 2px 8px rgba(255, 204, 0, 0.3));
+  }
+}
+
+.logo img {
+  animation: continuousLogoFloat 3.5s ease-in-out infinite;
+  will-change: transform, filter;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  transition: filter 0.6s ease-in-out;
+}
+
+.logo:hover img {
+  filter: drop-shadow(0 10px 26px rgba(255, 204, 0, 0.65)) brightness(1.1);
+}
+
+.logo h1 {
+  transition: all 0.6s ease-in-out;
+}
+
+.logo:hover h1 {
+  color: #ffdd33;
+  text-shadow: 0 0 15px rgba(255, 204, 0, 0.6);
+}
+
+.floating {
+  animation: continuousHeroFloat 4s ease-in-out infinite !important;
+  will-change: transform, filter;
+  transform: translateZ(0) !important;
+  backface-visibility: hidden !important;
+  transition: filter 0.6s ease-in-out !important;
+}
+
+.floating:hover {
+  filter: drop-shadow(0 16px 40px rgba(255, 204, 0, 0.75)) brightness(1.15) !important;
+}
+
+.footer-logo img {
+  animation: continuousFooterFloat 3.5s ease-in-out infinite;
+  will-change: transform, filter;
+  transform: translateZ(0);
+  transition: filter 0.5s ease-in-out;
+}
+
+.footer-logo:hover img {
+  filter: drop-shadow(0 10px 24px rgba(255, 204, 0, 0.7)) brightness(1.12);
+}
+
+/* ===== SMOOTH ICON ANIMATIONS ===== */
+
+@keyframes smoothIconFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    filter: drop-shadow(0 2px 8px rgba(255, 204, 0, 0.3));
+  }
+  50% {
+    transform: translateY(-8px) scale(1.03);
+    filter: drop-shadow(0 6px 14px rgba(255, 204, 0, 0.4));
+  }
+}
+
+.feature-icon, .stat-icon, .highlight-icon {
+  animation: smoothIconFloat 3.5s ease-in-out infinite;
+  will-change: transform, filter;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.feature-card:hover .feature-icon,
+.stat-card:hover .stat-icon,
+.highlight-item:hover .highlight-icon {
+  transform: scale(1.2);
+  filter: drop-shadow(0 10px 24px rgba(255, 204, 0, 0.7)) brightness(1.25);
+}
+
+.feature-icon i, .stat-icon i, .highlight-icon i {
+  transition: color 0.5s ease-in-out, text-shadow 0.5s ease-in-out;
+}
+
+.feature-card:hover .feature-icon i,
+.stat-card:hover .stat-icon i,
+.highlight-item:hover .highlight-icon i {
+  color: #ffdd33;
+  text-shadow: 0 0 12px rgba(255, 204, 0, 0.7);
+}
+
+.hero-feature i {
+  animation: smoothIconFloat 3.5s ease-in-out infinite;
+  transition: all 0.5s ease-in-out;
+}
+
+.hero-feature:hover i {
+  transform: scale(1.25);
+  filter: drop-shadow(0 8px 18px rgba(255, 204, 0, 0.7));
+  color: #ffdd33;
+}
+
+/* ===== ENHANCED CARD ANIMATIONS ===== */
+
+@keyframes cardSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes subtlePulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(255, 204, 0, 0.15);
+  }
+  50% {
+    box-shadow: 0 8px 25px rgba(255, 204, 0, 0.25);
+  }
+}
+
+.feature-card, .stat-card, .highlight-item {
+  animation: cardSlideIn 0.6s ease-out backwards, subtlePulse 4s ease-in-out infinite;
+  transition: all 0.4s ease-in-out;
+  will-change: transform, box-shadow;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.1s, 0s; }
+.feature-card:nth-child(2) { animation-delay: 0.2s, 0s; }
+.feature-card:nth-child(3) { animation-delay: 0.3s, 0s; }
+.feature-card:nth-child(4) { animation-delay: 0.4s, 0s; }
+.feature-card:nth-child(5) { animation-delay: 0.5s, 0s; }
+.feature-card:nth-child(6) { animation-delay: 0.6s, 0s; }
+
+.stat-card:nth-child(1) { animation-delay: 0.1s, 0s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s, 0s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s, 0s; }
+.stat-card:nth-child(4) { animation-delay: 0.4s, 0s; }
+
+.feature-card:hover, .stat-card:hover, .highlight-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(255, 204, 0, 0.3);
+}
+
+/* ===== ENHANCED BUTTON ANIMATIONS ===== */
+
+@keyframes buttonPulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.5);
+  }
+}
+
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  animation: buttonPulseGlow 3s ease-in-out infinite;
+  will-change: transform, box-shadow;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(255, 204, 0, 0.6);
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn:active {
+  transform: translateY(-1px);
+}
+
+/* ===== SMOOTH SECTION TRANSITIONS ===== */
+
+@keyframes sectionGlowPulse {
+  0%, 100% {
+    background: linear-gradient(135deg, rgba(255, 204, 0, 0.05), rgba(255, 204, 0, 0.02));
+  }
+  50% {
+    background: linear-gradient(135deg, rgba(255, 204, 0, 0.1), rgba(255, 204, 0, 0.05));
+  }
+}
+
+section {
+  animation: sectionGlowPulse 6s ease-in-out infinite;
+  transition: all 0.4s ease-in-out;
+}
+
+.section-title {
+  transition: all 0.4s ease-in-out;
+}
+
+.section-title:hover {
+  transform: scale(1.02);
+  text-shadow: 0 0 15px rgba(255, 204, 0, 0.4);
+}
+
+/* ===== SMOOTH NAVIGATION ===== */
+
+.nav-link {
+  position: relative;
+  transition: color 0.4s ease-in-out;
+  padding: 8px 0;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.4s ease-in-out;
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+/* ===== TEXT ANIMATIONS ===== */
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 0 rgba(255, 204, 0, 0);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(255, 204, 0, 0.5);
+  }
+}
+
+h1, h2, h3 {
+  transition: color 0.4s ease-in-out, text-shadow 0.4s ease-in-out;
+}
+
+.feature-title, .highlight-title {
+  transition: color 0.4s ease-in-out;
+}
+
+.feature-card:hover .feature-title,
+.highlight-item:hover .highlight-title {
+  color: #ffdd33;
+}
+
+/* ===== SMOOTH PROGRESS BAR ===== */
+
+@keyframes progressFill {
+  0% { width: 0%; }
+  100% { width: var(--progress-value, 100%); }
+}
+
+.progress-fill {
+  animation: progressFill 1.2s ease-out forwards;
+  transition: background-color 0.4s ease-in-out;
+}
+
+.stat-card:hover .progress-fill {
+  background: linear-gradient(90deg, var(--primary), #ffdd33);
+}
+
+/* ===== SMOOTH LINKS ===== */
+
+a {
+  transition: all 0.4s ease-in-out;
+  position: relative;
+}
+
+a:hover {
+  color: var(--primary);
+}
+
+/* ===== SMOOTH INPUT FOCUS ===== */
+
+input, textarea, select {
+  transition: all 0.4s ease-in-out;
+}
+
+input:focus, textarea:focus, select:focus {
+  transform: scale(1.01);
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+}
+
+/* ===== SMOOTH SCROLLBAR ===== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 204, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+  transition: background 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffdd33;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
+}
+
+/* ===== FOOTER COLUMN ANIMATIONS ===== */
+
+@keyframes footerSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.footer-column {
+  animation: footerSlideIn 0.6s ease-out backwards;
+}
+
+.footer-column:nth-child(1) { animation-delay: 0.1s; }
+.footer-column:nth-child(2) { animation-delay: 0.2s; }
+.footer-column:nth-child(3) { animation-delay: 0.3s; }
+
+.footer-link {
+  transition: all 0.4s ease-in-out;
+  position: relative;
+}
+
+.footer-link:hover {
+  color: #ffdd33;
+  transform: translateX(4px);
+}
+
+.footer-link::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  opacity: 0;
+  color: #ffcc00;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.footer-link:hover::before {
+  opacity: 1;
+}
+
+/* ===== SMOOTH HEADER BACKDROP ===== */
+
+.header {
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease-in-out;
+}
+
+.header:hover {
+  backdrop-filter: blur(15px);
+}
+
+/* ===== HERO SECTION ENHANCEMENT ===== */
+
+@keyframes heroGlow {
+  0%, 100% {
+    background-color: rgba(26, 26, 46, 1);
+  }
+  50% {
+    background-color: rgba(26, 26, 46, 1.05);
+  }
+}
+
+.hero-section {
+  animation: heroGlow 4s ease-in-out infinite;
+  transition: all 0.4s ease-in-out;
+}
+
+.hero-content h1 {
+  animation: cardSlideIn 0.8s ease-out;
+}
+
+.hero-content p {
+  animation: cardSlideIn 0.8s ease-out 0.2s backwards;
+}
+
+/* ===== SMOOTH BORDER ANIMATIONS ===== */
+
+.feature-card, .stat-card, .highlight-item {
+  border: 1px solid rgba(255, 204, 0, 0.2);
+  transition: border-color 0.4s ease-in-out;
+}
+
+.feature-card:hover, .stat-card:hover, .highlight-item:hover {
+  border-color: rgba(255, 204, 0, 0.6);
+}
+
+/* ===== REMOVE CONFLICTS ===== */
+
+.logo {
+  animation: continuousLogoFloat 3.5s ease-in-out infinite !important;
+}
+
+.stat-card:hover .stat-number {
+  animation: none !important;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+/* ===== GLOBAL SMOOTH EASING ===== */
+
+* {
+  transition-timing-function: ease-in-out;
+}
+
+button, a, input, select, textarea, [role="button"] {
+  will-change: transform;
+  transform: translateZ(0);
+}
+

@@ -1,0 +1,597 @@
+/* ===== PERFORMANCE OPTIMIZED ANIMATIONS ===== */
+
+/* GPU ACCELERATION FOR ALL ANIMATED ELEMENTS */
+.logo, .floating, .feature-icon, .stat-icon, .highlight-icon, 
+.stat-card, .feature-card, .highlight-item, .btn, .nav-link,
+.footer-logo, .command-icon {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* ===== SMOOTH GLOBAL TRANSITIONS ===== */
+* {
+  transition: color 0.3s cubic-bezier(0.4, 0.0, 0.2, 1),
+              background-color 0.3s cubic-bezier(0.4, 0.0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+/* ===== SIMPLIFIED LOGO ANIMATIONS ===== */
+@keyframes logoGentleFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(1deg); }
+}
+
+@keyframes logoHoverSpin {
+  0% { transform: rotateZ(0deg) scale(1); }
+  100% { transform: rotateZ(360deg) scale(1.1); }
+}
+
+.logo img {
+  animation: logoGentleFloat 4s ease-in-out infinite;
+  filter: drop-shadow(0 4px 12px rgba(255, 204, 0, 0.3));
+  transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.logo:hover img {
+  animation: logoHoverSpin 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 8px 24px rgba(255, 204, 0, 0.6));
+}
+
+.logo h1 {
+  transition: text-shadow 0.4s ease, color 0.4s ease;
+}
+
+.logo:hover h1 {
+  color: #ffdd33;
+  text-shadow: 0 0 20px rgba(255, 204, 0, 0.6);
+}
+
+/* ===== SMOOTH ICON ANIMATIONS ===== */
+@keyframes iconGentleFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes iconHoverPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes iconHoverSpin {
+  0% { transform: rotateY(0deg) rotateZ(0deg); }
+  100% { transform: rotateY(360deg) rotateZ(360deg); }
+}
+
+.feature-icon, .stat-icon, .highlight-icon {
+  animation: iconGentleFloat 3.5s ease-in-out infinite;
+  filter: drop-shadow(0 2px 8px rgba(255, 204, 0, 0.3));
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon,
+.stat-card:hover .stat-icon,
+.highlight-item:hover .highlight-icon {
+  animation: iconHoverSpin 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 6px 20px rgba(255, 204, 0, 0.7));
+  transform: scale(1.2);
+}
+
+/* ===== SMOOTH BUTTON ANIMATIONS ===== */
+@keyframes buttonHoverLift {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-4px); }
+}
+
+.btn {
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.btn:hover {
+  animation: buttonHoverLift 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.btn:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.btn:active {
+  transform: translateY(-2px);
+}
+
+/* ===== SMOOTH CARD ANIMATIONS ===== */
+@keyframes cardSlideUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.feature-card, .stat-card, .highlight-item, .command-item {
+  animation: cardSlideUp 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) backwards;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              box-shadow 0.4s cubic-bezier(0.4, 0.0, 0.2, 1),
+              border-color 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.05s; }
+.feature-card:nth-child(2) { animation-delay: 0.1s; }
+.feature-card:nth-child(3) { animation-delay: 0.15s; }
+.feature-card:nth-child(4) { animation-delay: 0.2s; }
+.feature-card:nth-child(5) { animation-delay: 0.25s; }
+.feature-card:nth-child(6) { animation-delay: 0.3s; }
+
+.stat-card:nth-child(1) { animation-delay: 0.05s; }
+.stat-card:nth-child(2) { animation-delay: 0.1s; }
+.stat-card:nth-child(3) { animation-delay: 0.15s; }
+.stat-card:nth-child(4) { animation-delay: 0.2s; }
+
+.highlight-item:nth-child(1) { animation-delay: 0.05s; }
+.highlight-item:nth-child(2) { animation-delay: 0.1s; }
+.highlight-item:nth-child(3) { animation-delay: 0.15s; }
+.highlight-item:nth-child(4) { animation-delay: 0.2s; }
+
+/* ===== SMOOTH NAVIGATION ANIMATIONS ===== */
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+  padding-bottom: 4px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* ===== SMOOTH HERO ANIMATIONS ===== */
+@keyframes heroTitleSlide {
+  0% { opacity: 0; transform: translateX(-30px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+.hero-content h1 {
+  animation: heroTitleSlide 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.hero-image {
+  animation: cardSlideUp 0.8s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.floating {
+  animation: logoGentleFloat 4s ease-in-out infinite !important;
+  filter: drop-shadow(0 8px 24px rgba(255, 204, 0, 0.4)) !important;
+}
+
+.floating:hover {
+  animation: none !important;
+  transform: scale(1.15) rotateZ(15deg) !important;
+  filter: drop-shadow(0 12px 36px rgba(255, 204, 0, 0.7)) !important;
+}
+
+/* ===== SMOOTH FOOTER ANIMATIONS ===== */
+.footer-logo img {
+  animation: iconGentleFloat 3.5s ease-in-out infinite;
+  transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.footer-logo:hover img {
+  animation: iconHoverSpin 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform: scale(1.15);
+  filter: drop-shadow(0 6px 20px rgba(255, 204, 0, 0.7));
+}
+
+/* ===== PROGRESS BAR SMOOTH ANIMATION ===== */
+@keyframes progressFill {
+  0% { width: 0%; }
+  100% { width: var(--progress-value, 100%); }
+}
+
+.progress-fill {
+  animation: progressFill 1.5s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+}
+
+.progress-fill::after {
+  animation: none;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 204, 0, 0.5);
+  transition: box-shadow 0.3s ease;
+}
+
+.stat-card:hover .progress-fill::after {
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.8);
+}
+
+/* ===== SMOOTH SECTION TRANSITIONS ===== */
+section {
+  transition: all 0.4s ease;
+}
+
+/* ===== TEXT ANIMATIONS WITH SMOOTH TRANSITIONS ===== */
+.section-title {
+  animation: heroTitleSlide 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transition: transform 0.3s ease;
+}
+
+.section-title:hover {
+  transform: scale(1.02);
+}
+
+/* ===== SMOOTH SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 204, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffdd33;
+  box-shadow: 0 0 10px rgba(255, 204, 0, 0.6);
+}
+
+/* ===== SMOOTH CATEGORY ANIMATIONS ===== */
+.category {
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  cursor: pointer;
+}
+
+.category::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: width 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.category.active::after {
+  width: 100%;
+}
+
+/* ===== REMOVE CONFLICTING ANIMATIONS ===== */
+.logo {
+  animation: logoGentleFloat 4s ease-in-out infinite !important;
+}
+
+.stat-number {
+  animation: none !important;
+}
+
+/* ===== SMOOTH HOVER GLOW EFFECT ===== */
+@keyframes subtleGlow {
+  0%, 100% { box-shadow: 0 0 0 rgba(255, 204, 0, 0.3); }
+  50% { box-shadow: 0 0 15px rgba(255, 204, 0, 0.3); }
+}
+
+.stat-card {
+  animation: subtleGlow 3s ease-in-out infinite;
+}
+
+/* ===== SMOOTH INPUT ANIMATIONS ===== */
+input, textarea, select {
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+input:focus, textarea:focus, select:focus {
+  transform: scale(1.01);
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.3);
+}
+
+/* ===== FOOTER COLUMN ANIMATIONS ===== */
+.footer-column {
+  animation: cardSlideUp 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) backwards;
+}
+
+.footer-column:nth-child(1) { animation-delay: 0.05s; }
+.footer-column:nth-child(2) { animation-delay: 0.1s; }
+.footer-column:nth-child(3) { animation-delay: 0.15s; }
+
+/* ===== SMOOTH LINK ANIMATIONS ===== */
+a {
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+a:hover {
+  color: var(--primary);
+}
+
+/* ===== COMMAND LIST SMOOTH ANIMATIONS ===== */
+.command-item {
+  animation: cardSlideUp 0.6s cubic-bezier(0.4, 0.0, 0.2, 1) backwards;
+}
+
+/* ===== REMOVE JANKY ANIMATIONS ===== */
+@keyframes none {
+  0%, 100% { opacity: 1; }
+}
+
+.stat-card:hover .stat-number {
+  animation: none !important;
+}
+
+
+/* ===== ENHANCED UI ELEMENTS ===== */
+
+/* ===== SHADOW ENHANCEMENTS ===== */
+@keyframes shadowPulse {
+  0%, 100% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); }
+  50% { box-shadow: 0 8px 25px rgba(255, 204, 0, 0.15); }
+}
+
+/* ===== CARD SHADOW EFFECTS ===== */
+.feature-card, .stat-card, .highlight-item {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: shadowPulse 4s ease-in-out infinite;
+}
+
+.feature-card:hover, .stat-card:hover, .highlight-item:hover {
+  animation: none;
+  box-shadow: 0 12px 40px rgba(255, 204, 0, 0.25);
+}
+
+/* ===== BACKDROP BLUR ENHANCEMENT ===== */
+.header {
+  backdrop-filter: blur(10px);
+  background: rgba(26, 26, 46, 0.95);
+}
+
+/* ===== SMOOTH GRADIENT BACKGROUNDS ===== */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.stats-section {
+  background: linear-gradient(-45deg, rgba(255, 204, 0, 0.08), rgba(255, 204, 0, 0.03), rgba(255, 204, 0, 0.08));
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+}
+
+/* ===== SMOOTH BORDER ANIMATIONS ===== */
+.feature-card, .stat-card, .highlight-item {
+  border-transition: border-color 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+  position: relative;
+}
+
+/* ===== SMOOTH HOVER STATE TRANSITIONS ===== */
+.feature-card:hover, .stat-card:hover, .highlight-item:hover {
+  transform: translateY(-8px);
+  border-color: var(--primary);
+}
+
+/* ===== MICRO-INTERACTIONS ===== */
+/* Checkbox / Toggle smooth animation */
+input[type="checkbox"] {
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+input[type="checkbox"]:checked {
+  transform: scale(1.1);
+}
+
+/* ===== BUTTON RIPPLE EFFECT ENHANCEMENT ===== */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.btn:active::after {
+  animation: ripple 0.6s ease;
+}
+
+@keyframes ripple {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+  }
+}
+
+/* ===== SMOOTH LOADING STATES ===== */
+@keyframes loading {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.loading {
+  animation: loading 1.5s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
+}
+
+/* ===== ENHANCED HOVER TEXT SHADOW ===== */
+h1, h2, h3, h4, h5, h6 {
+  transition: text-shadow 0.3s ease, color 0.3s ease;
+}
+
+.section-title:hover, .feature-title:hover {
+  text-shadow: 0 0 20px rgba(255, 204, 0, 0.4);
+}
+
+/* ===== SMOOTH FOCUS STATES ===== */
+button:focus, a:focus, input:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(255, 204, 0, 0.2);
+}
+
+/* ===== ENHANCED TRANSITION CURVES ===== */
+:root {
+  --ease-smooth: cubic-bezier(0.4, 0.0, 0.2, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-in-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ===== SMOOTH OPACITY TRANSITIONS ===== */
+.fade-in {
+  animation: fadeIn 0.5s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ===== SMOOTH SCALE TRANSITIONS ===== */
+.scale-up {
+  animation: scaleUp 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ===== ENHANCED TOOLTIP ANIMATIONS ===== */
+[data-tooltip] {
+  position: relative;
+}
+
+[data-tooltip]::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%) translateY(10px);
+  opacity: 0;
+  background: rgba(255, 204, 0, 0.95);
+  color: #000;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  z-index: 100;
+}
+
+[data-tooltip]:hover::before {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ===== SMOOTH ALERT ANIMATIONS ===== */
+.alert {
+  animation: slideInDown 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+@keyframes slideInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== SMOOTH TAB TRANSITIONS ===== */
+.tab {
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+.tab.active {
+  border-bottom: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+/* ===== ENHANCED MODAL ANIMATIONS ===== */
+.modal {
+  animation: modalIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes modalOut {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 0; transform: scale(0.95); }
+}
+
+/* ===== SMOOTH DROPDOWN ANIMATIONS ===== */
+.dropdown-menu {
+  animation: dropdownIn 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+@keyframes dropdownIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== SMOOTH NOTIFICATION ANIMATIONS ===== */
+.notification {
+  animation: notificationSlideIn 0.4s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+@keyframes notificationSlideIn {
+  from { opacity: 0; transform: translateX(100px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ===== SMOOTH SKELETON LOADING ===== */
+.skeleton {
+  background: linear-gradient(90deg, rgba(255, 204, 0, 0.1) 0%, rgba(255, 204, 0, 0.05) 50%, rgba(255, 204, 0, 0.1) 100%);
+  background-size: 200% 100%;
+  animation: skeletonLoading 2s infinite;
+}
+
+@keyframes skeletonLoading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
